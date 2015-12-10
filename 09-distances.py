@@ -11,7 +11,6 @@ with open('09-input.txt') as fh:
         pairs[(place1, place2)] = distance
         pairs[(place2, place1)] = distance
 places = list(places)
-# get rid of two places
 P = itertools.permutations(places)
 ROUTES = {}
 for i in P:
