@@ -76,7 +76,7 @@ for combination in COMBINATIONS:
 
 COMBINATIONS += RC
 
-# Find the cheapest option.
+# Find the cheapest/most expensive option for each combination.
 valprice = {}
 
 for c in COMBINATIONS:
@@ -92,10 +92,11 @@ for c in COMBINATIONS:
 print("{0} item combinations found.".format(len(valprice)))
 
 # AND FIGHT!
-LOST = []
+LOST = []  # formerly known as WON
 for stats, price in valprice.items():
     #if fight(*stats):
+    #    WON.append(price)
     if not fight(*stats):
         LOST.append(price)
-#print(min(LOST))
+#print(min(WON))
 print(max(LOST))
