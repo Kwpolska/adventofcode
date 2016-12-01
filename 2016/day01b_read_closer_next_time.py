@@ -16,7 +16,6 @@ with open("input/01.txt") as fh:
     for t in directions_t:
         directions.append((t[0], int(t[1:].strip())))
 
-i = 0
 for direction, distance in directions:
     if direction == 'L':
         DIR = (DIR - 1) % 4
