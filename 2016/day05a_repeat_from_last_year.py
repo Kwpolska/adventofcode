@@ -6,7 +6,7 @@ import hashlib
 def solve(data):
     answer = ''
     filled = 0
-    i = 3231900
+    i = 0
     while filled != 8:
         d = hashlib.md5(data + str(i).encode('ascii')).hexdigest()
         i += 1
