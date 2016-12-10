@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 with open("input/💾.txt") as fh:
-    file_data = fh.read()
+    file_data = fh.read().strip()
 
 
 def solve(data):
