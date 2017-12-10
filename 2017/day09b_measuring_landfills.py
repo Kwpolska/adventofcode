@@ -10,19 +10,14 @@ def solve(data):
     for c in data:
         if in_exclamation:
             in_exclamation = False
-            continue
-        if c == '!':
+        elif c == '!':
             in_exclamation = True
-            continue
-        if c == '>':
+        elif c == '>':
             in_garbage = False
-            continue
-        if in_garbage:
+        elif in_garbage:
             count += 1
-            continue
-        if c == '<':
+        elif c == '<':
             in_garbage = True
-            continue
     return count
 
 

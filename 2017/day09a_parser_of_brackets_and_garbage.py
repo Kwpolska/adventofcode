@@ -11,19 +11,16 @@ def solve(data):
     for c in data:
         if in_exclamation:
             in_exclamation = False
-            continue
-        if c == '!':
+        elif c == '!':
             in_exclamation = True
-            continue
-        if c == '>':
+        elif c == '>':
             in_garbage = False
-            continue
-        if in_garbage:
-            continue
-        if c == '<':
+        elif in_garbage:
+            pass
+        elif c == '<':
             in_garbage = True
-            continue
-        clean += c
+        else:
+            clean += c
 
     # Step 2: count braces.
     score = 0
