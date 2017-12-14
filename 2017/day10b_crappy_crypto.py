@@ -3,7 +3,7 @@ with open("input/10.txt") as fh:
     file_data = fh.read().strip()
 
 
-def solve(data, size=256):
+def solve_sparse(data, size=256):
     # The instructions are kinda unclear about this.
     lengths = [ord(i) for i in data]
     lengths += [17, 31, 73, 47, 23]
@@ -41,23 +41,31 @@ def solve(data, size=256):
             # print("end  ", length, L)
 
     sparse = []
-    print(L)
+    # print(L)
     for i in range(16):
         _l = (i * 16)
         segment = L[(_l if _l > 0 else 0):((i + 1) * 16)]
-        print(i, segment, len(segment))
+        # print(i, segment, len(segment))
         assert len(segment) == 16
         result = segment[0]
         for digit in segment[1:]:
             result ^= digit
         sparse.append(result)
+    return sparse
 
+def solve(data, size=256):
+    sparse = solve_sparse(data, size)
     return ''.join(f"{c:02x}" for c in sparse)
 
+def solve_bin(data, size=256):
+    sparse = solve_sparse(data, size)
+    return ''.join(f"{c:08b}" for c in sparse)
 
-test_data = ""
-test_output = solve(test_data)
-test_expected = "a2582a3a0e66e6e86e3812dcb672a272"
-print(test_output, test_expected)
-assert test_output == test_expected
-print(solve(file_data))
+
+if __name__ == '__main__':
+    test_data = ""
+    test_output = solve(test_data)
+    test_expected = "a2582a3a0e66e6e86e3812dcb672a272"
+    print(test_output, test_expected)
+    assert test_output == test_expected
+    print(solve(file_data))
