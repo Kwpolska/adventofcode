@@ -3,3 +3,4 @@ __pycache__
 .idea
 *.iml
 /out/
+.mypy_cache
