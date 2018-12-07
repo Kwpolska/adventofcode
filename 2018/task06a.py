@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import collections
+
 with open("input/06.txt") as fh:
     file_data = fh.read().strip()
 
@@ -20,7 +21,7 @@ def solve(data, min_xy, max_xy):
             dst = []
             for p in points:
                 # dst.append((p, manhattan(p, xy)))
-                md = abs(p[0] - x) + abs(p[1] - y) #manhattan(p, xy)
+                md = abs(p[0] - x) + abs(p[1] - y)  # manhattan(p, xy)
                 dst.append((p, md))
             min_dist = min(d[1] for d in dst)
             found = list(filter(lambda d: d[1] == min_dist, dst))
